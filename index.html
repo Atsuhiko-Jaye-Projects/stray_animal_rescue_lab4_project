@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A demonstration interface for reporting stray animals and coordinating rescue and care.">
+  <title>PawPath | Stray Animal Rescue &amp; Care</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="PawPath home"><span class="brand-icon" aria-hidden="true">✦</span><span>PawPath</span></a>
+    <nav aria-label="Main navigation"><a href="#reports">Reports</a><a href="#care">Care records</a></nav>
+    <span class="demo-pill">DEMO SYSTEM</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">EVERY PAW DESERVES CARE</p>
+        <h1>Small actions.<br><span>Safer streets.</span></h1>
+        <p class="hero-text">A community-focused space to report stray animals, follow rescue progress, and keep basic care information organized.</p>
+        <a class="button button-light" href="#report-form">Report a stray animal <span aria-hidden="true">→</span></a>
+        <p class="hero-note">For demonstration and classroom use. Reports are not sent to a real rescue team.</p>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Illustration of a friendly dog and cat">
+        <div class="sun"></div><div class="blob"></div>
+        <div class="pet pet-dog"><span class="ear left"></span><span class="ear right"></span><span class="face"><i class="eye one"></i><i class="eye two"></i><i class="nose"></i><i class="cheek"></i></span><span class="body"></span></div>
+        <div class="pet pet-cat"><span class="cat-ear left"></span><span class="cat-ear right"></span><span class="cat-face"><i class="eye one"></i><i class="eye two"></i><i class="nose"></i></span><span class="cat-body"></span></div>
+        <div class="hero-caption"><span>♡</span><div><strong>Rescue starts with noticing.</strong><small>Report · Rescue · Care</small></div></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Demonstration summary">
+      <article class="stat-card"><span class="stat-symbol orange">◎</span><div><span class="stat-label">Demo reports</span><strong id="total-reports">3</strong></div></article>
+      <article class="stat-card"><span class="stat-symbol blue">↗</span><div><span class="stat-label">Rescue in progress</span><strong id="in-progress">1</strong></div></article>
+      <article class="stat-card"><span class="stat-symbol green">♡</span><div><span class="stat-label">Marked rescued</span><strong id="rescued-count">1</strong></div></article>
+    </section>
+
+    <section class="content-section" id="reports">
+      <div class="section-heading"><div><p class="eyebrow">COMMUNITY REPORTS</p><h2>Rescue request board</h2><p>Review sample reports and update their demonstration status.</p></div><label class="filter-label" for="status-filter">Filter status<select id="status-filter"><option value="all">All statuses</option><option value="Reported">Reported</option><option value="Rescue in Progress">Rescue in Progress</option><option value="Rescued">Rescued</option></select></label></div>
+      <div class="report-layout">
+        <div class="report-list" id="report-list" aria-live="polite">
+          <article class="report-card" data-id="1" data-status="Reported"><div class="animal-thumb dog-thumb" aria-hidden="true">🐕</div><div class="report-main"><div class="report-title-row"><h3>Brown dog near the market</h3><span class="status status-reported">Reported</span></div><p class="report-location">⌖ Market road, Demo Barangay</p><p class="report-description">Seen resting near the sidewalk. Condition needs to be checked by a trained rescuer.</p><div class="report-meta"><span>Dog</span><span>Sample report</span></div><label class="status-update">Update demo status<select class="report-status-select" aria-label="Update status for Brown dog near the market"><option selected>Reported</option><option>Rescue in Progress</option><option>Rescued</option></select></label></div></article>
+          <article class="report-card" data-id="2" data-status="Rescue in Progress"><div class="animal-thumb cat-thumb" aria-hidden="true">🐈</div><div class="report-main"><div class="report-title-row"><h3>White cat near the terminal</h3><span class="status status-progress">Rescue in Progress</span></div><p class="report-location">⌖ Transport terminal, Demo Barangay</p><p class="report-description">A volunteer has been assigned in this fictional example. Avoid approaching if the animal seems frightened.</p><div class="report-meta"><span>Cat</span><span>Sample report</span></div><label class="status-update">Update demo status<select class="report-status-select" aria-label="Update status for White cat near the terminal"><option>Reported</option><option selected>Rescue in Progress</option><option>Rescued</option></select></label></div></article>
+          <article class="report-card" data-id="3" data-status="Rescued"><div class="animal-thumb puppy-thumb" aria-hidden="true">🐶</div><div class="report-main"><div class="report-title-row"><h3>Puppy found beside a park</h3><span class="status status-rescued">Rescued</span></div><p class="report-location">⌖ Community park, Demo Barangay</p><p class="report-description">Sample record showing a report marked as rescued. This is not a real rescue confirmation.</p><div class="report-meta"><span>Dog</span><span>Sample report</span></div><label class="status-update">Update demo status<select class="report-status-select" aria-label="Update status for Puppy found beside a park"><option>Reported</option><option>Rescue in Progress</option><option selected>Rescued</option></select></label></div></article>
+        </div>
+
+        <aside class="panel report-form-panel" id="report-form">
+          <div class="panel-heading"><span class="panel-icon">＋</span><div><h3>Make a sample report</h3><p>Try the form using fictional information.</p></div></div>
+          <form id="new-report-form">
+            <label for="animal-type">Animal type</label><select id="animal-type" required><option value="">Choose animal</option><option>Dog</option><option>Cat</option><option>Other</option></select>
+            <label for="animal-location">Location description</label><input id="animal-location" type="text" maxlength="80" placeholder="e.g., near the community park" required>
+            <label for="animal-condition">Observed condition</label><select id="animal-condition" required><option value="">Choose an observation</option><option>Appears calm</option><option>Seems frightened</option><option>May need assistance</option><option>Unsure</option></select>
+            <label for="animal-description">Additional details <span class="optional">(optional)</span></label><textarea id="animal-description" rows="3" maxlength="180" placeholder="Describe what you observed, without approaching the animal."></textarea>
+            <button class="button button-primary" type="submit">Add demo report <span aria-hidden="true">→</span></button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite">This creates a local demo card only. Nothing is sent to a rescue service.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-section care-section" id="care">
+      <div class="section-heading"><div><p class="eyebrow">BASIC CARE FOLLOW-UP</p><h2>Animal care records</h2><p>Fictional examples to show how basic follow-up information could be organized.</p></div></div>
+      <div class="care-grid">
+        <article class="care-card"><span class="care-icon food">♡</span><div><span class="care-type">FOOD &amp; WATER</span><h3>Provide basic supplies</h3><p>Record whether food and clean water were provided by an authorized volunteer.</p><span class="care-status">Example: Logged</span></div></article>
+        <article class="care-card"><span class="care-icon shelter">⌂</span><div><span class="care-type">SAFE SHELTER</span><h3>Record temporary shelter</h3><p>Note the responsible shelter or foster contact in a real system with appropriate consent.</p><span class="care-status pending">Example: Follow-up needed</span></div></article>
+        <article class="care-card"><span class="care-icon follow">✓</span><div><span class="care-type">CARE FOLLOW-UP</span><h3>Track next steps</h3><p>Keep a basic non-clinical record of the next follow-up action. Veterinary assessment belongs to qualified professionals.</p><span class="care-status">Example: Review planned</span></div></article>
+      </div>
+    </section>
+
+    <section class="safety-note"><span aria-hidden="true">ⓘ</span><p><strong>Safety note:</strong> This classroom prototype uses fictional data and does not contact rescuers. Do not approach or handle a frightened, injured, or aggressive animal. Contact the appropriate local animal welfare group or government office for real cases. This system is not a veterinary service.</p></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-icon" aria-hidden="true">✦</span><span>PawPath</span></a><span>Stray Animal Rescue &amp; Care Management · Frontend demo only</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
